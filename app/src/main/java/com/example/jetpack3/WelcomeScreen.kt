@@ -60,17 +60,17 @@ fun WelcomeScreen(onStartClicked: () -> Unit){
             contentDescription = "Black modern chair",
             modifier = Modifier
                 .size(420.dp)
-            ,
-
-        )
+            ,        )
+        Spacer(modifier = Modifier.weight(1f))
         Row(
-            modifier = Modifier.padding(top = 24.dp)
+            modifier = Modifier.padding(top = 24.dp).fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = "Affordable home furniture \ndesigns & ideas",
                 fontSize = 14.sp,
                 color = SolakColor
                 )
-            Spacer(modifier = Modifier.width(30.dp))
+            Spacer(modifier = Modifier.weight(1f))
             Button(
                 onClick = {onStartClicked()},
                 modifier = Modifier
@@ -79,7 +79,7 @@ fun WelcomeScreen(onStartClicked: () -> Unit){
                 ,
                 shape = CircleShape,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
-                Text("Start")
+                Text("START", fontFamily = everett, fontSize = 14.sp)
             }
         }
     }

@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpack3.ui.theme.Black
 
-val CardColor = Color(0xFFD0BEA2)
+    val CardColor = Color(0xFFD0BEA2)
 @Composable
 fun HotDealCart(modifier: Modifier = Modifier){
     var discounts = 75

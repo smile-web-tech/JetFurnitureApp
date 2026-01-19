@@ -11,7 +11,9 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val BackgroundColor = Color(0xFFDAD3C8)
-val Black = Color(0xFF000000)
+val Black = Color(0xA1000000)
 val SolakColor = Color(0xFF645F57)
 
 val goyyYashyl = Color(0xFF3F6900)
+
+val dividerColor = Color(0xFFCEBB9E)

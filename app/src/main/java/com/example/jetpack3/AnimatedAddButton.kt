@@ -28,16 +28,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import com.example.jetpack3.ui.theme.goyyYashyl
 @Composable
 fun AnimatedAddButton(
     modifier: Modifier = Modifier,
-    // You can pass a callback here if you want to tell the parent the new number
     onQuantityChange: (Int) -> Unit = {}
 ) {
-    // Internal state to track if we are open or closed
+    val buttonSize = 26.dp
+    val iconSize = buttonSize * 0.6f
+    val contentPadding = buttonSize * 0.1f
+    val fontSize = (buttonSize.value * 0.45).sp
+
     var isExpanded by remember { mutableStateOf(false) }
     var quantity by remember { mutableStateOf(0) }
 
@@ -56,65 +60,64 @@ fun AnimatedAddButton(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(4.dp) // Inner padding
+            modifier = Modifier.padding(contentPadding)
         ) {
 
-            // --- THE HIDDEN PART (Minus & Number) ---
-            // Only visible when expanded
             AnimatedVisibility(visible = isExpanded) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    // MINUS BUTTON
                     Icon(
                         imageVector = Icons.Default.Remove,
                         contentDescription = "Decrease",
                         modifier = Modifier
-                            .size(32.dp) // Touch target size
+                            .size(buttonSize)
                             .clip(CircleShape)
                             .clickable {
                                 if (quantity > 1) {
                                     quantity--
                                     onQuantityChange(quantity)
                                 } else {
-                                    // If we go below 1, collapse back to just "+"
                                     quantity = 0
                                     onQuantityChange(0)
                                     isExpanded = false
                                 }
                             }
-                            .padding(6.dp) // Icon visual size padding
+                            .padding(contentPadding),
+                        tint = Color.White
                     )
 
-                    // THE NUMBER
                     Text(
                         text = "$quantity",
-                        fontSize = 14.sp,
+                        fontSize = fontSize,
                         fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(horizontal = 8.dp)
+                        modifier = Modifier.padding(horizontal = 6.dp)
                     )
                 }
             }
 
-            // --- THE VISIBLE PART (Plus Button) ---
             Icon(
                 imageVector = Icons.Default.Add,
                 contentDescription = "Increase",
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(buttonSize)
                     .clip(CircleShape)
                     .clickable {
                         if (!isExpanded) {
-                            // First click: Expand and set to 1
                             isExpanded = true
                             quantity = 1
                             onQuantityChange(1)
                         } else {
-                            // Subsequent clicks: Just add
                             quantity++
                             onQuantityChange(quantity)
                         }
                     }
-                    .padding(6.dp)
+                    .padding(contentPadding),
+                tint = Color.White
             )
         }
     }
+}
+@Composable
+@Preview
+fun AnimatedAddButtonPreview(){
+    AnimatedAddButton()
 }
