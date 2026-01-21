@@ -25,11 +25,14 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.jetpack3.ui.theme.Black
 
     val CardColor = Color(0xFFD0BEA2)
 @Composable
-fun HotDealCart(modifier: Modifier = Modifier){
+fun HotDealCart(
+    product: NewArrivals,
+    modifier: Modifier = Modifier){
     var discounts = 75
     var discount_time = "16 MARCH"
     Card(modifier = modifier
@@ -42,7 +45,7 @@ fun HotDealCart(modifier: Modifier = Modifier){
         Row(
             modifier = modifier.fillMaxWidth().padding(bottom = 16.dp)
         ) {
-            Image(painter = painterResource(R.drawable.black_sofa),
+            AsyncImage(model = product.imageUrl,
                 contentDescription = "Black Sofa",
                 modifier = modifier.size(150.dp)
                 )
@@ -80,5 +83,9 @@ fun HotDealCart(modifier: Modifier = Modifier){
 @Composable
 @Preview
 fun HotDealCartPreview(){
-    HotDealCart()
+
+        val Sampleproduct = NewArrivals(
+            imageUrl = "maksat"
+        )
+    HotDealCartPreview()
 }

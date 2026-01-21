@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.jetpack3" />
+                  <option name="mobileSdkAppId" value="1:595365746561:android:d9959cf6df135146cdba80" />
+                  <option name="projectId" value="jetfurniture-d3243" />
+                  <option name="projectNumber" value="595365746561" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

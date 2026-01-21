@@ -44,6 +44,7 @@ import com.example.jetpack3.ui.theme.SolakColor
 
 @Composable
 fun WelcomeScreen(onStartClicked: () -> Unit){
+
     Column(
         modifier = Modifier.fillMaxSize().background(color = BackgroundColor).padding(24.dp)
     ) {

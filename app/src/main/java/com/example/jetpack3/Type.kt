@@ -19,5 +19,6 @@ val montserrat = FontFamily(
 )
 
 val everett = FontFamily(
-    Font(R.font.everett_regular)
+    Font(R.font.everett_regular, FontWeight.Normal),
+            Font(R.font.everett_bold, FontWeight.Bold)
 )
